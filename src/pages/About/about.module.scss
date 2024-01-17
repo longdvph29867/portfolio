@@ -1,0 +1,67 @@
+@use '/src/style/style.scss' as var;
+
+.about {
+    position: relative;
+    padding: 80px 0;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transform: rotate(180deg); 
+        background-image: url(../../assets/home_10.jpeg);
+        background-size: cover;
+        background-position: bottom;
+    }
+    .title {
+        margin-bottom: 0px;
+        h2 {
+            color: var.$white-color;
+        }
+    }
+    .aboutContainer {
+        display: flex;
+        align-items: center;
+        @include var.breakpoint(lg) {
+            flex-direction: column;
+        }
+        .aboutLeft {
+            width: 40%;
+            text-align: center;
+            @include var.breakpoint(lg) {
+                width: 100%;
+            }
+            img {
+                width: 360px;
+                border-radius: 8px;
+            }
+        }
+        .aboutRight {
+            width: 60%;
+            @include var.breakpoint(lg) {
+                width: 100%;
+                margin-top: 50px;
+            }
+            p {
+                margin-bottom: 10px;
+                color: var.$white-color;
+                font-size: 18px;
+                line-height: 26px;
+                @include var.breakpoint(lg) {
+                    font-size: 16px;
+                }
+            }
+            .aboutBtn {
+                text-align: center;
+                padding-top: 10px;
+                a {
+                    @include var.btn;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

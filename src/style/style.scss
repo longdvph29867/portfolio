@@ -1,0 +1,57 @@
+$primary-color: #ffae00;
+$white-color: #ffffff;
+$title-color: #212121;
+$text-color: #616161;
+/*
+@use '/src/style/style.scss' as var;
+var.$primary-color
+var.$white-color
+var.$black-color
+
+@include var.breakpoint(lg) {
+    
+}
+*/
+@mixin btn {
+    font-size: 24px;
+    color: $white-color;
+    background-color: #fff;
+    padding: 10px 30px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 2px solid $primary-color;
+    transition: all .3s ease;
+    box-shadow: 0px 0px 50px 50px $primary-color inset;
+    &:hover {
+        color: $primary-color;
+        box-shadow: 0px 0px 0px 0px $primary-color inset;
+    }
+}
+
+@mixin breakpoint($class) {
+    @if $class == xs {
+        @media (max-width: 350px) {
+            @content;
+        }
+    }
+    @else if $class == sm {
+        @media (max-width: 640px) {
+            @content;
+        }
+    }
+    @else if $class == md {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $class == lg {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+    @else if $class == xl {
+        @media (max-width: 1280px) {
+            @content;
+        }
+    }
+}

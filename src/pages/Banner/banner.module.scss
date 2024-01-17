@@ -1,0 +1,135 @@
+@use '/src/style/style.scss' as var;
+
+.banner {
+    padding-top: 100px;
+    position: relative;
+    min-height: 100vh;
+    .bannerContainer {
+        position: relative;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        @include var.breakpoint(lg) {
+            flex-direction: column;
+        }
+        .bannerLeft {
+            width: 50%;
+            color: var.$title-color;
+            @include var.breakpoint(lg) {
+                width: 100%;
+                margin-top: 50px;
+            }
+            h3 {
+                font-size: 25px;
+                color: var.$text-color;
+            }
+            h1 {
+                font-size: 65px;
+                margin: 0 0 10px;
+                @include var.breakpoint(md) {
+                    font-size: 60px;
+                }
+                @include var.breakpoint(sm) {
+                    font-size: 50px;
+                }
+            }
+            h2 {
+                font-size: 35px;
+                @include var.breakpoint(md) {
+                    font-size: 32px;
+                }
+                @include var.breakpoint(sm) {
+                    font-size: 28px;
+                }
+                span {
+                    color: var.$primary-color;
+                }
+            }
+            a {
+                @include var.btn;
+                margin-top: 20px;
+                display: inline-block;
+            }
+        }
+        .bannerRight {
+            width: 50%;
+            position: relative;
+            padding: 50px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include var.breakpoint(lg) {
+                width: 100%;
+                margin-top: 50px;
+            }
+            .myImg {
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+                background-image: url(../../assets/myImage1.png);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                order: 1;
+                justify-self: center;
+                width: 500px;
+                max-width: 100%;
+                height: 500px;
+                box-shadow: inset 0 0 0 9px rgb(255 255 255 / 30%);
+                animation: profile_animate 8s ease-in-out infinite 1s;
+                @include var.breakpoint(sm) {
+                    height: 450px;
+                }
+            }
+            .imgBg {
+                position: absolute;
+                top: -20%;
+                left: 110%;
+                width: 300px;
+            }
+        }
+    }
+    .imgLeft {
+        position: absolute;
+        top: 30%;
+        right: 95%;
+        width: 600px;
+        transform: rotate(145deg);
+    }
+    .imgTop {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        width: 200px;
+        animation: spin 30s linear infinite;
+    }
+    .imgTopleft {
+        position: absolute;
+        top: -12%;
+        right: 80%;
+        width: 500px;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes profile_animate {
+    0% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40%/ 50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+    
+}

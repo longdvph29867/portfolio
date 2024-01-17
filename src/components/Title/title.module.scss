@@ -1,0 +1,22 @@
+@use '/src/style/style.scss' as var;
+
+.title {
+    text-align: center;
+    padding-bottom: 30px;
+    h2 {
+        padding-bottom: 6px;
+        font-size: 40px;
+        color: var.$title-color;
+    }
+    hr {
+        width: 8%;
+        margin: 10px auto;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid var.$primary-color;
+        @include var.breakpoint(md) {
+            width: 16%;
+        }
+    }
+}
+

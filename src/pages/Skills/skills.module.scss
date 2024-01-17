@@ -1,0 +1,31 @@
+@use '/src/style/style.scss' as var;
+
+.skills {
+    padding: 80px 0;
+    position: relative;
+    .title {
+        position: relative;
+        z-index: 1;
+    }
+    .skillsContainer {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+        @include var.breakpoint(lg) {
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include var.breakpoint(sm) {
+            grid-template-columns: repeat(1,1fr);
+        }
+    }
+    .imgItem {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        img {
+            width: 900px;
+        }
+    }
+}

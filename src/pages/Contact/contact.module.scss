@@ -1,0 +1,60 @@
+@use '/src/style/style.scss' as var;
+
+.contact {
+    padding: 10px 0;
+    position: relative;
+    .contactContainer {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-items: center;
+        gap: 10px;
+        @include var.breakpoint(lg) {
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include var.breakpoint(md) {
+            grid-template-columns: repeat(1,1fr);
+        }
+        .contactItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 360px;
+            border-radius: 6px;
+            padding: 15px;
+            transform: translateY(0);
+            @include var.breakpoint(sm) {
+                justify-content: flex-start;
+            }
+            svg {
+                font-size: 30px;
+                margin-right: 12px;
+                color: var.$primary-color;
+                @include var.breakpoint(sm) {
+                    font-size: 20px;
+                }
+            }
+            p {
+                color: var.$title-color;
+                @include var.breakpoint(sm) {
+                    font-size: 12px;
+                }
+            }
+            a {
+                color: var.$title-color;
+                @include var.breakpoint(sm) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .imgCenter {
+        position: absolute;
+        bottom: 0%;
+        left: 35%;
+        width: 500px;
+        transform: rotate(180deg);
+    }
+}

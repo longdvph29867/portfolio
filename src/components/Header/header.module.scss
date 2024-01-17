@@ -1,0 +1,98 @@
+@use '/src/style/style.scss' as var;
+
+header {
+    background-color: transparent;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    padding: 30px 0;
+    transition: all 0.3s ease;
+    .headerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .brand {
+            font-size: 35px;
+            color: var.$title-color;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            @include var.breakpoint(md) {
+                font-size: 30px;
+            }
+            span {
+                color: var.$primary-color;
+                transition: all 0.3s ease;
+            }
+        }
+        .menu {
+            @include var.breakpoint(md) {
+                display: none;
+            }
+            ul {
+                display: flex;
+                li {
+                    a {
+                        cursor: pointer;
+                        display: block;
+                        margin-left: 25px;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: var.$title-color;
+                        transition: all 0.3s ease;
+                        &:hover {
+                            color: var.$primary-color;
+                        }
+                        &.activeNav {
+                            color: var.$primary-color;
+                        }
+                    }
+                }
+            }
+        }
+        .dropdown {
+            display: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            @include var.breakpoint(md) {
+                display: block;
+            }
+            svg {
+                font-size: 28px;
+                transform: translateY(3px);
+            }
+        }
+    }
+    &.sticky {
+        background-color: var.$primary-color;
+        padding: 0;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        .headerContainer {
+            .brand {
+                color: var.$white-color;
+                span {
+                    color: var.$white-color;
+                }
+            }
+            .menu ul li a {
+                color: var.$white-color;
+                &:hover {
+                    color: var.$text-color;
+                }
+                &.activeNav {
+                    color: var.$text-color;
+                }
+            }
+            
+        }
+        .dropdown {
+            svg {
+                color: var.$white-color;
+            }
+        }
+    }
+}
